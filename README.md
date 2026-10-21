@@ -1,12 +1,14 @@
 # Elastic AI Day Tokyo — Day 1 タイムテーブル
 
-Interactive Day 1 timetable, embedded in the Splash event page via an iframe.
+Day 1 timetable, embedded in the Splash event page via an iframe.
 
-- Live page (once GitHub Pages is on): https://gonzalopollandt-lgtm.github.io/elastic-ai-day-tokyo-timetable/
-- Source: `index.html` (single self-contained file)
+- Live page: https://gonzalopollandt-lgtm.github.io/elastic-ai-day-tokyo-timetable/
+- `index.html` — the page (plain HTML + CSS, no scripts)
+- `img/` — speaker photos (small WebP images wrapped in SVG)
 
 ## Updating sessions
 
-Edit the text inside the matching `<article class="ect-card">` (breakouts) or `<details>` block (keynotes) in `index.html` and commit. The Splash iframe picks up the change automatically; GitHub Pages usually redeploys within a minute or two.
+Edit the text in `index.html` (pencil icon on GitHub) and commit. Each breakout session is an `<article class="ect-card">`; each keynote is an `<li class="ect-block ect-block--key">`. The Splash iframe picks up changes automatically once GitHub Pages redeploys (usually 1–2 minutes).
 
-To grey out a pending item, add the class `is-tbd` to the card or to the speaker name.
+- To grey out a pending item, add `is-tbd` to the card or to the speaker name.
+- To change a photo, replace the matching file in `img/` and keep the same filename.

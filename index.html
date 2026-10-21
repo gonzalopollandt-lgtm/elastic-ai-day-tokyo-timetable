@@ -3,608 +3,284 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elastic AI Day Tokyo — Day 1 タイムテーブル</title>
-<!-- Standalone version: host this file (GitHub Pages, S3, your web CMS…)
-     and point a Splash iframe/embed element at its URL. -->
-<style>
-  html, body { margin: 0; padding: 0; }
-  body { background: linear-gradient(160deg, #0d1a55 0%, #1b2d8f 100%); min-height: 100vh; }
-  .ect { border-radius: 0 !important; background: transparent !important; }
-</style>
-</head>
-<body>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
 
-  .ect {
+<title>Elastic AI Day Tokyo — Day 1 タイムテーブル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
     --ect-bg-1: #0d1a55;
     --ect-bg-2: #1b2d8f;
     --ect-band: #172a80;
     --ect-band-key: #1f38a8;
-    --ect-band-hover: #2441b8;
-    --ect-panel: #13226a;
-    --ect-card: #1a2d86;
+    --ect-card: #1e3392;
     --ect-time: #5fe6d4;
     --ect-text: #ffffff;
     --ect-sub: #c3cbef;
     --ect-muted: #8e9ad2;
+    --ect-line: rgba(195, 203, 239, 0.18);
     --ect-search: #4fe3cf;
     --ect-security: #ef5a9c;
     --ect-obs: #f7c534;
     --ect-ink: #0d1a55;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: linear-gradient(160deg, var(--ect-bg-1) 0%, var(--ect-bg-2) 100%); min-height: 100vh; }
+  :where(.ect) :where(h2, h3, h4, p, ul, ol) { margin: 0; padding: 0; }
+  :where(.ect) :where(ul, ol) { list-style: none; }
 
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: clamp(24px, 4vw, 52px) clamp(14px, 3vw, 44px) clamp(28px, 4vw, 48px);
-    background: linear-gradient(160deg, var(--ect-bg-1) 0%, var(--ect-bg-2) 100%);
-    border-radius: 12px;
+  .ect {
+    padding: clamp(24px, 4vw, 56px) clamp(16px, 3.5vw, 64px) clamp(32px, 4vw, 56px);
     color: var(--ect-text);
     font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
     line-height: 1.5;
-    text-align: left;
+    -webkit-font-smoothing: antialiased;
   }
-  .ect *, .ect *::before, .ect *::after { box-sizing: border-box; }
-  .ect h2, .ect h3, .ect h4, .ect p, .ect ul { margin: 0; padding: 0; }
-  .ect ul { list-style: none; }
 
   /* ---------- Heading ---------- */
-  .ect-title {
-    font-size: clamp(26px, 3.6vw, 44px);
-    font-weight: 900;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
+  .ect-title { font-size: clamp(28px, 3.6vw, 48px); font-weight: 900; line-height: 1.2; }
   .ect-title-bar { margin: 0 0.3em; font-weight: 400; }
-  .ect .ect-lede {
-    margin-top: 0.35em;
-    padding-left: 0.8em;
-    font-size: clamp(15px, 1.7vw, 20px);
-    font-style: italic;
-    font-weight: 500;
-  }
-  .ect .ect-hint {
-    margin-top: 1.4em;
-    font-size: 13px;
-    color: var(--ect-muted);
-  }
+  .ect-lede { margin-top: 0.35em; padding-left: 0.8em; font-size: clamp(15px, 1.6vw, 20px); font-style: italic; font-weight: 500; }
+  .ect-legend { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 24px; font-size: 13px; color: var(--ect-sub); }
+  .ect-legend li { display: flex; align-items: center; gap: 10px; }
 
-  /* ---------- Timeline rows ---------- */
-  .ect-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 12px;
-  }
-  .ect-row {
+  /* ---------- Timeline ---------- */
+  .ect-list { display: flex; flex-direction: column; gap: 8px; margin-top: 24px; }
+  .ect-list > li {
     display: grid;
-    grid-template-columns: 9.5rem minmax(0, 1fr) auto 6.5rem 1.5rem;
-    grid-template-areas: "time label pills kind chev";
-    align-items: center;
-    column-gap: 16px;
-    min-height: 44px;
-    padding: 8px 14px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.035);
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    column-gap: 20px;
+    border-radius: 6px;
   }
   .ect-time {
-    grid-area: time;
     font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
-    color: var(--ect-muted);
+    color: var(--ect-time);
     white-space: nowrap;
   }
-  .ect-label {
-    grid-area: label;
-    font-size: 15px;
-    color: var(--ect-muted);
-  }
-  .ect-label small {
-    margin-left: 1em;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ect-sub);
-  }
-  .ect-kind {
-    grid-area: kind;
-    justify-self: end;
-    font-size: 13px;
-    color: var(--ect-sub);
-    white-space: nowrap;
-  }
-  .ect-pills { grid-area: pills; display: flex; gap: 8px; }
 
-  /* Session rows (keynotes, breakouts, party) */
-  .ect-row--session { background: var(--ect-band); }
-  .ect-row--key     { background: var(--ect-band-key); }
-  .ect-row--session .ect-time,
-  .ect-row--key .ect-time { color: var(--ect-time); }
-  .ect-row--session .ect-label,
-  .ect-row--key .ect-label { color: var(--ect-text); font-weight: 700; }
+  .ect-row--break { align-items: center; padding: 10px 18px; background: rgba(255, 255, 255, 0.035); }
+  .ect-row--break .ect-time { color: var(--ect-muted); }
+  .ect-row--break .ect-label { font-size: 15px; color: var(--ect-muted); }
   .ect-row--end .ect-time { color: var(--ect-time); }
   .ect-row--end .ect-label { color: var(--ect-text); }
 
-  /* ---------- Pills ---------- */
+  .ect-block { padding: 20px 18px; }
+  .ect-block > .ect-time { padding-top: 2px; }
+  .ect-block--key { background: var(--ect-band-key); }
+  .ect-block--breakout, .ect-block--party { background: var(--ect-band); }
+
+  /* ---------- Shared bits ---------- */
   .ect-pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 7.5rem;
-    padding: 3px 12px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.4;
-    white-space: nowrap;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 7.5rem; padding: 3px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; line-height: 1.4; white-space: nowrap;
   }
+  .ect-pill--sm { min-width: 0; padding: 2px 10px; font-size: 11px; }
   .ect-pill--search   { background: var(--ect-search);   color: var(--ect-ink); }
   .ect-pill--security { background: var(--ect-security); color: #ffffff; }
   .ect-pill--obs      { background: var(--ect-obs);      color: var(--ect-ink); }
-  .ect-pill--sm { min-width: 0; padding: 2px 10px; font-size: 11px; }
 
-  /* ---------- Expandable behaviour ---------- */
-  .ect-item > summary {
-    list-style: none;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-  }
-  .ect-item > summary::-webkit-details-marker { display: none; }
-  .ect-item > summary:hover { background: var(--ect-band-hover); }
-  .ect-item > summary:focus-visible {
-    outline: 2px solid var(--ect-time);
-    outline-offset: 2px;
-  }
-  .ect-chev {
-    grid-area: chev;
-    justify-self: end;
-    width: 9px;
-    height: 9px;
-    border-right: 2px solid var(--ect-sub);
-    border-bottom: 2px solid var(--ect-sub);
-    transform: translateY(-2px) rotate(45deg);
-    transition: transform 0.3s cubic-bezier(.2, .7, .2, 1);
-  }
-  .ect-item[open]:not(.is-closing) .ect-chev {
-    transform: translateY(2px) rotate(225deg);
-  }
-  .ect-item[open] > summary { border-radius: 4px 4px 0 0; }
+  .ect-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 12px; color: var(--ect-sub); }
+  .ect-type { padding: 1px 8px; border: 1px solid rgba(195, 203, 239, 0.45); border-radius: 3px; font-size: 11px; }
+  .ect-desc { font-size: 13.5px; line-height: 1.8; color: var(--ect-sub); }
 
-  .ect-body { overflow: hidden; }
-  .ect-inner {
-    padding: 16px;
-    background: var(--ect-panel);
-    border-radius: 0 0 6px 6px;
+  /* Speakers */
+  .ect-speakers { display: flex; flex-direction: column; gap: 14px; }
+  .ect-sp { display: flex; align-items: center; gap: 14px; }
+  .ect-sp-text { min-width: 0; }
+  .ect-ava {
+    flex: none; display: inline-flex; align-items: center; justify-content: center;
+    width: 56px; height: 56px; border-radius: 50%;
+    object-fit: cover;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
   }
+  .ect-ava--lg { width: 76px; height: 76px; }
+  .ect-ava--mono { font-size: 20px; font-weight: 700; color: var(--ect-sub); box-shadow: 0 0 0 1px var(--ect-line); }
+  .ect-ava--lg.ect-ava--mono { font-size: 26px; }
+  .ect-ava--tbd { background: transparent; box-shadow: none; border: 1.5px dashed var(--ect-muted); }
+  .ect-name { display: block; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; }
+  .ect-name.is-tbd { color: var(--ect-muted); }
+  .ect-affil { display: block; font-size: 12px; line-height: 1.6; color: var(--ect-sub); }
 
-  /* Cards fade up in sequence when a row opens */
-  @keyframes ect-in {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: none; }
-  }
-  .ect-item[open]:not(.is-closing) .ect-reveal {
-    animation: ect-in 0.4s cubic-bezier(.2, .7, .2, 1) both;
-  }
-  .ect-item[open]:not(.is-closing) .ect-reveal:nth-child(2) { animation-delay: 0.06s; }
-  .ect-item[open]:not(.is-closing) .ect-reveal:nth-child(3) { animation-delay: 0.12s; }
+  /* ---------- Keynotes ---------- */
+  .ect-key { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(16rem, 1fr); gap: 20px 40px; }
+  .ect-key-main { display: flex; flex-direction: column; gap: 10px; }
+  .ect-kicker { font-size: 13px; font-weight: 700; color: var(--ect-time); letter-spacing: 0.04em; }
+  .ect-key-title { font-size: clamp(18px, 1.6vw, 22px); font-weight: 700; line-height: 1.45; }
+  .ect-key .ect-desc { font-size: 14px; }
+  .ect-key-side { align-self: center; padding-left: 28px; border-left: 1px solid var(--ect-line); }
 
-  /* ---------- Breakout cards ---------- */
-  .ect-cards {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-  }
+  /* ---------- Breakouts ---------- */
+  .ect-bo-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+  .ect-bo-title { font-size: 17px; font-weight: 700; }
+  .ect-kind { font-size: 13px; color: var(--ect-sub); white-space: nowrap; }
+  .ect-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
   .ect-card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 16px 18px 18px;
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 18px 20px 20px;
     background: var(--ect-card);
-    border-top: 3px solid var(--ect-accent, var(--ect-sub));
+    border-top: 3px solid var(--ect-accent);
     border-radius: 4px 4px 8px 8px;
   }
   .ect-card--search   { --ect-accent: var(--ect-search); }
   .ect-card--security { --ect-accent: var(--ect-security); }
   .ect-card--obs      { --ect-accent: var(--ect-obs); }
+  .ect-session { font-size: 16px; font-weight: 700; line-height: 1.5; }
+  .ect-card.is-tbd .ect-session { color: var(--ect-muted); }
+  .ect-card .ect-speakers { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--ect-line); }
 
-  .ect-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px 10px;
-    font-size: 12px;
-    color: var(--ect-sub);
-  }
-  .ect-type {
-    padding: 1px 8px;
-    border: 1px solid rgba(195, 203, 239, 0.45);
-    border-radius: 3px;
-    font-size: 11px;
-    color: var(--ect-sub);
-  }
-  .ect-session {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.5;
-  }
-  .ect-desc {
-    font-size: 13px;
-    line-height: 1.75;
-    color: var(--ect-sub);
-  }
-  .ect .ect-speakers {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: auto;
-    padding-top: 10px;
-    border-top: 1px solid rgba(195, 203, 239, 0.18);
-  }
-  .ect-name {
-    display: block;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-  }
-  .ect-affil {
-    display: block;
-    font-size: 12px;
-    line-height: 1.6;
-    color: var(--ect-sub);
-  }
-  .ect-card.is-tbd .ect-session,
-  .ect-name.is-tbd { color: var(--ect-muted); }
-
-  /* ---------- Keynote / party panel ---------- */
-  .ect-feature {
-    display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-    gap: 16px 28px;
-    padding: 4px 4px 2px;
-  }
-  .ect-feature .ect-desc { font-size: 14px; }
-  .ect .ect-feature .ect-speakers {
-    margin-top: 0;
-    padding-top: 0;
-    padding-left: 20px;
-    border-top: 0;
-    border-left: 1px solid rgba(195, 203, 239, 0.18);
-  }
-  .ect-feature .ect-meta { grid-column: 1 / -1; }
+  .ect-party { display: flex; flex-direction: column; gap: 6px; }
 
   /* ---------- Tablet ---------- */
-  @media (max-width: 1000px) {
-    .ect-row {
-      grid-template-columns: 8rem minmax(0, 1fr) auto 1.5rem;
-      grid-template-areas:
-        "time label kind chev"
-        ".    pills pills .";
-      row-gap: 8px;
-    }
+  @media (max-width: 960px) {
     .ect-cards { grid-template-columns: 1fr; }
+    .ect-key { grid-template-columns: 1fr; }
+    .ect-key-side { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--ect-line); }
   }
 
   /* ---------- Mobile ---------- */
   @media (max-width: 640px) {
-    .ect-row {
-      grid-template-columns: minmax(0, 1fr) auto 1.5rem;
-      grid-template-areas:
-        "time  kind  chev"
-        "label label label"
-        "pills pills pills";
-      row-gap: 4px;
-      padding: 10px 12px;
-    }
-    .ect-label small { display: block; margin: 2px 0 0; }
-    .ect-pills { flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-    .ect-pill { min-width: 0; }
-    .ect-inner { padding: 10px; }
-    .ect-feature { grid-template-columns: 1fr; }
-    .ect .ect-feature .ect-speakers {
-      padding: 12px 0 0;
-      border-left: 0;
-      border-top: 1px solid rgba(195, 203, 239, 0.18);
-    }
+    .ect-list > li { grid-template-columns: 1fr; row-gap: 8px; }
+    .ect-row--break { row-gap: 2px; padding: 10px 14px; }
+    .ect-block { padding: 16px 12px; }
+    .ect-card { padding: 16px; }
+    .ect-ava--lg { width: 64px; height: 64px; }
+    .ect-legend { gap: 8px 16px; }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .ect-chev, .ect-item > summary { transition: none; }
-    .ect-item[open]:not(.is-closing) .ect-reveal { animation: none; }
-  }
 </style>
-
-<div class="ect" lang="ja">
-  <h2 class="ect-title">Day 1<span class="ect-title-bar" aria-hidden="true">|</span>タイムテーブル</h2>
-  <p class="ect-lede">2026年11月26日（木）　紀尾井カンファレンス</p>
-  <p class="ect-hint">各セッションをクリックすると詳細が表示されます。</p>
-
-  <div class="ect-list">
-
-    <div class="ect-row">
-      <span class="ect-time">12:00–13:00</span>
-      <span class="ect-label">受付・展示オープン</span>
+</head>
+<body>
+<main class="ect">
+  <header class="ect-head">
+    <h2 class="ect-title">Day 1<span class="ect-title-bar" aria-hidden="true">|</span>タイムテーブル</h2>
+    <p class="ect-lede">2026年11月26日（木）　紀尾井カンファレンス</p>
+    <ul class="ect-legend" aria-label="トラック">
+      <li><span class="ect-pill ect-pill--search">Search / AI</span><span>セミナールームA+B</span></li>
+      <li><span class="ect-pill ect-pill--security">Security</span><span>セミナールームD</span></li>
+      <li><span class="ect-pill ect-pill--obs">Observability</span><span>セミナールームC</span></li>
+    </ul>
+  </header>
+  <ol class="ect-list">
+<li class="ect-row ect-row--break"><span class="ect-time">12:00–13:00</span><span class="ect-label">受付・展示オープン</span></li>
+<li class="ect-block ect-block--key">
+  <span class="ect-time">13:00–13:30</span>
+  <div class="ect-key">
+    <div class="ect-key-main">
+      <p class="ect-kicker">基調講演 1</p>
+      <h3 class="ect-key-title">オープニング</h3>
+      <div class="ect-meta"><span>メインルーム</span><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span><span class="ect-pill ect-pill--sm ect-pill--security">Security</span><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span></div>
+      <p class="ect-desc">AIが強力になるほど、データの価値は上がる。ElasticsearchをContext Engineering（AI Index）の基盤に、Agentic SOCとAgentic SREが検索・セキュリティ・オブザーバビリティをどう変えるか。お客様事例とデモでお見せします。</p>
     </div>
-
-    <!-- 基調講演 1 -->
-    <details class="ect-item">
-      <summary class="ect-row ect-row--key">
-        <span class="ect-time">13:00–13:30</span>
-        <span class="ect-label">基調講演 1｜オープニング<small>Elasticsearch株式会社 代表取締役社長 大谷 健</small></span>
-        <span class="ect-chev" aria-hidden="true"></span>
-      </summary>
-      <div class="ect-body"><div class="ect-inner">
-        <div class="ect-feature">
-          <div class="ect-meta ect-reveal">
-            <span>メインルーム</span>
-            <span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span>
-            <span class="ect-pill ect-pill--sm ect-pill--security">Security</span>
-            <span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span>
-          </div>
-          <p class="ect-desc ect-reveal">AIが強力になるほど、データの価値は上がる。ElasticsearchをContext Engineering（AI Index）の基盤に、Agentic SOCとAgentic SREが検索・セキュリティ・オブザーバビリティをどう変えるか。お客様事例とデモでお見せします。</p>
-          <ul class="ect-speakers ect-reveal">
-            <li><span class="ect-name">大谷 健</span><span class="ect-affil">Elasticsearch株式会社　代表取締役社長</span></li>
-          </ul>
-        </div>
-      </div></div>
-    </details>
-
-    <!-- 基調講演 2 -->
-    <details class="ect-item">
-      <summary class="ect-row ect-row--key">
-        <span class="ect-time">13:30–13:55</span>
-        <span class="ect-label">基調講演 2｜AWS と Elasticで実現するAI活用の今と未来</span>
-        <span class="ect-chev" aria-hidden="true"></span>
-      </summary>
-      <div class="ect-body"><div class="ect-inner">
-        <div class="ect-feature">
-          <div class="ect-meta ect-reveal">
-            <span>メインルーム</span>
-            <span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span>
-          </div>
-          <p class="ect-desc ect-reveal">AWSが牽引するAI・データ活用の最新イノベーションをご紹介するとともに、国内ユーザー企業様をゲストにお迎えし、Elasticとの取り組みを通じたビジネス価値創出の実践についてお話しいただきます。</p>
-          <ul class="ect-speakers ect-reveal">
-            <li><span class="ect-name">河原 哲也</span><span class="ect-affil">アマゾン ウェブ サービス ジャパン合同会社　パートナー技術統括本部 テクノロジーソリューション本部 本部長</span></li>
-            <li><span class="ect-name">赤澤 剛</span><span class="ect-affil">株式会社タイミー　エンジニアリング本部 VPoE</span></li>
-          </ul>
-        </div>
-      </div></div>
-    </details>
-
-    <!-- 基調講演 3 -->
-    <details class="ect-item">
-      <summary class="ect-row ect-row--key">
-        <span class="ect-time">13:55–14:20</span>
-        <span class="ect-label">基調講演 3｜パートナーシップ10年の軌跡と、AI時代への挑戦</span>
-        <span class="ect-chev" aria-hidden="true"></span>
-      </summary>
-      <div class="ect-body"><div class="ect-inner">
-        <div class="ect-feature">
-          <div class="ect-meta ect-reveal">
-            <span>メインルーム</span>
-            <span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span>
-          </div>
-          <p class="ect-desc ect-reveal">Elasticとの10年にわたるパートナーシップを通じて培ってきた知見と実績をもとに、NTTテクノクロス様にこれまでの取り組みとAI時代における展望をお話しいただくとともに、国内ユーザー企業様をゲストにお迎えし、実際の活用事例についてもご紹介いただきます。</p>
-          <ul class="ect-speakers ect-reveal">
-            <li><span class="ect-name is-tbd">登壇者調整中</span><span class="ect-affil">NTTテクノクロス株式会社　ビジネスイノベーション事業部</span></li>
-            <li><span class="ect-name is-tbd">ゲスト調整中</span><span class="ect-affil">国内ユーザー企業様</span></li>
-          </ul>
-        </div>
-      </div></div>
-    </details>
-
-    <div class="ect-row">
-      <span class="ect-time">14:25–14:40</span>
-      <span class="ect-label">休憩・展示エリア</span>
-    </div>
-
-    <!-- ブレイクアウト ① -->
-    <details class="ect-item">
-      <summary class="ect-row ect-row--session">
-        <span class="ect-time">14:40–15:10</span>
-        <span class="ect-label">ブレイクアウトセッション ①</span>
-        <span class="ect-pills" aria-hidden="true">
-          <span class="ect-pill ect-pill--search">Search / AI</span>
-          <span class="ect-pill ect-pill--security">Security</span>
-          <span class="ect-pill ect-pill--obs">Observability</span>
-        </span>
-        <span class="ect-kind">お客様事例</span>
-        <span class="ect-chev" aria-hidden="true"></span>
-      </summary>
-      <div class="ect-body"><div class="ect-inner">
-        <div class="ect-cards">
-          <article class="ect-card ect-card--search ect-reveal">
-            <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span><span>セミナールームA+B</span><span class="ect-type">お客様事例</span></div>
-            <h3 class="ect-session">AIエージェント時代の検索基盤、作り直した理由</h3>
-            <p class="ect-desc">Elasticsearch 上にあるお客様のナレッジを RAG や AI エージェントで検索可能にする事例や、検索機能の開発を今後加速させる基盤の構築についてご紹介します。</p>
-            <ul class="ect-speakers"><li><span class="ect-name">井田 天星</span><span class="ect-affil">株式会社ナレッジワーク　ソフトウェアエンジニア</span></li></ul>
-          </article>
-          <article class="ect-card ect-card--security ect-reveal">
-            <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--security">Security</span><span>セミナールームD</span><span class="ect-type">Elastic</span></div>
-            <h3 class="ect-session">AI時代のセキュリティ地図とElastic Securityの現在地</h3>
-            <p class="ect-desc">AIエージェントの普及とともに、求められるセキュリティソリューションの姿も変わりつつあります。本セッションでは、攻撃連鎖を貫く視点からセキュリティのあり方を整理したうえで、Elastic SecurityがAI技術によってSOC運用をどう変えようとしているのかをご紹介します。</p>
-            <ul class="ect-speakers"><li><span class="ect-name">石尾 尚二郎</span><span class="ect-affil">Elastic</span></li></ul>
-          </article>
-          <article class="ect-card ect-card--obs is-tbd ect-reveal">
-            <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span><span>セミナールームC</span><span class="ect-type">お客様事例</span></div>
-            <h3 class="ect-session">タイトル調整中</h3>
-            <ul class="ect-speakers"><li><span class="ect-name is-tbd">登壇者調整中</span></li></ul>
-          </article>
-        </div>
-      </div></div>
-    </details>
-
-    <div class="ect-row">
-      <span class="ect-time">15:10–15:25</span>
-      <span class="ect-label">休憩・展示エリア</span>
-    </div>
-
-    <!-- ブレイクアウト ② -->
-    <details class="ect-item">
-      <summary class="ect-row ect-row--session">
-        <span class="ect-time">15:25–15:55</span>
-        <span class="ect-label">ブレイクアウトセッション ②</span>
-        <span class="ect-pills" aria-hidden="true">
-          <span class="ect-pill ect-pill--search">Search / AI</span>
-          <span class="ect-pill ect-pill--security">Security</span>
-          <span class="ect-pill ect-pill--obs">Observability</span>
-        </span>
-        <span class="ect-kind">スポンサー</span>
-        <span class="ect-chev" aria-hidden="true"></span>
-      </summary>
-      <div class="ect-body"><div class="ect-inner">
-        <div class="ect-cards">
-          <article class="ect-card ect-card--search ect-reveal">
-            <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span><span>セミナールームA+B</span><span class="ect-type">スポンサー</span></div>
-            <h3 class="ect-session">Elastic×AgentCoreで進化する障害調査の最前線</h3>
-            <p class="ect-desc">Amazon Bedrock AgentCore RuntimeとElastic Cloudを連携。ログ・メトリクスをAIが横断分析し、自然言語による状況確認から障害原因・影響範囲の特定までを支援する仕組みをデモを交えて紹介します。</p>
-            <ul class="ect-speakers"><li><span class="ect-name">樋口 慎</span><span class="ect-affil">アクロクエストテクノロジー株式会社　データサイエンティスト／リサーチエンジニア</span></li></ul>
-          </article>
-          <article class="ect-card ect-card--security ect-reveal">
-            <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--security">Security</span><span>セミナールームD</span><span class="ect-type">スポンサー</span></div>
-            <h3 class="ect-session">フロンティアAI時代のあるべきSOCとは</h3>
-            <p class="ect-desc">本講演では、フロンティアAI時代に求められる検知の「速さ」・「深さ」とは何かについて解説するとともに、SOCにおけるAI活用の事例についてご紹介いたします。</p>
-            <ul class="ect-speakers"><li><span class="ect-name">佐藤 功陛</span><span class="ect-affil">デロイト トーマツ サイバー合同会社　執行役員 サイバーインテリジェンスセンター長</span></li></ul>
-          </article>
-          <article class="ect-card ect-card--obs ect-reveal">
-            <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span><span>セミナールームC</span><span class="ect-type">スポンサー</span></div>
-            <h3 class="ect-session">ローカルLLM×Agent Builder：コンテキストエンジニアリングの実装</h3>
-            <p class="ect-desc">企業データを守るローカルLLMの活用において、文脈（コンテキスト）の理解と制御は重要課題です。本セッションではコンテキストエンジニアリングを軸に、Elastic Agent Builderの持つ可能性と構築手法に迫ります。</p>
-            <ul class="ect-speakers"><li><span class="ect-name">伊藤 元三郎</span><span class="ect-affil">サイオステクノロジー株式会社　DX Product &amp; Integration Service Line Executive Manager</span></li></ul>
-          </article>
-        </div>
-      </div></div>
-    </details>
-
-    <div class="ect-row">
-      <span class="ect-time">15:55–16:10</span>
-      <span class="ect-label">休憩・展示エリア</span>
-    </div>
-
-    <!-- ブレイクアウト ③ -->
-    <details class="ect-item">
-      <summary class="ect-row ect-row--session">
-        <span class="ect-time">16:10–16:40</span>
-        <span class="ect-label">ブレイクアウトセッション ③</span>
-        <span class="ect-pills" aria-hidden="true">
-          <span class="ect-pill ect-pill--search">Search / AI</span>
-          <span class="ect-pill ect-pill--security">Security</span>
-          <span class="ect-pill ect-pill--obs">Observability</span>
-        </span>
-        <span class="ect-kind">Elastic</span>
-        <span class="ect-chev" aria-hidden="true"></span>
-      </summary>
-      <div class="ect-body"><div class="ect-inner">
-        <div class="ect-cards">
-          <article class="ect-card ect-card--search ect-reveal">
-            <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span><span>セミナールームA+B</span><span class="ect-type">Elastic</span></div>
-            <h3 class="ect-session">業務を理解するエージェントのために Elastic が提供する業務コンテキストレイヤー</h3>
-            <p class="ect-desc">エージェント開発がFAQから業務実行へ移る中、関連情報を渡すだけのRAGでは業務上の正解を出すことが難しくなっています。用語・ルール・権限を含む業務コンテキストを企業データから統合し、エージェントに供給するための、Elasticで実現するコンテキスト基盤について、アーキテクチャとデモを交えてご紹介します。</p>
-            <ul class="ect-speakers"><li><span class="ect-name">日山 雅之</span><span class="ect-affil">Elastic</span></li></ul>
-          </article>
-          <article class="ect-card ect-card--security ect-reveal">
-            <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--security">Security</span><span>セミナールームD</span><span class="ect-type">お客様事例</span></div>
-            <h3 class="ect-session">世界基準に応え、事業を支えるセキュリティ戦略</h3>
-            <p class="ect-desc">40カ国以上でグローバルビジネスを展開する当社にとって、高度化する取引先のセキュリティ要求への対応は、事業機会を確実に捉えるための不可欠な条件です。本セッションでは、セキュリティ要求を単なる制約とせず、取引先との交渉を通じて事業拡大と実効性ある対策を両立させてきた取り組みをご紹介します。</p>
-            <ul class="ect-speakers"><li><span class="ect-name">細川 光太</span><span class="ect-affil">住友電気工業株式会社　情報システム部 情報技術部 セキュリティ技術グループ長</span></li></ul>
-          </article>
-          <article class="ect-card ect-card--obs is-tbd ect-reveal">
-            <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span><span>セミナールームC</span></div>
-            <h3 class="ect-session">タイトル調整中</h3>
-            <ul class="ect-speakers"><li><span class="ect-name is-tbd">登壇者調整中</span></li></ul>
-          </article>
-        </div>
-      </div></div>
-    </details>
-
-    <div class="ect-row">
-      <span class="ect-time">16:40–17:00</span>
-      <span class="ect-label">懇親会会場へ移動</span>
-    </div>
-
-    <!-- 懇親会 -->
-    <details class="ect-item">
-      <summary class="ect-row ect-row--session">
-        <span class="ect-time">17:00–18:30</span>
-        <span class="ect-label">懇親会（メインルーム）</span>
-        <span class="ect-chev" aria-hidden="true"></span>
-      </summary>
-      <div class="ect-body"><div class="ect-inner">
-        <div class="ect-feature">
-          <p class="ect-desc ect-reveal">参加者同士のネットワーキングをお楽しみください。軽食と飲み物をご用意しています。</p>
-        </div>
-      </div></div>
-    </details>
-
-    <div class="ect-row ect-row--end">
-      <span class="ect-time">18:30</span>
-      <span class="ect-label">終了</span>
-    </div>
-
+    <div class="ect-key-side"><ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/otani.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">大谷 健</span><span class="ect-affil">Elasticsearch株式会社　代表取締役社長</span></span></li></ul></div>
   </div>
-
-  <script>
-    (function () {
-      var root = (document.currentScript && document.currentScript.parentNode) || document;
-      var reduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
-      var items = root.querySelectorAll('details.ect-item');
-
-      Array.prototype.forEach.call(items, function (d) {
-        var summary = d.querySelector('summary');
-        var body = d.querySelector('.ect-body');
-        var current = null;
-        if (!summary || !body || !body.animate) return;
-
-        summary.addEventListener('click', function (e) {
-          if (reduce.matches) return;           // native instant toggle
-          e.preventDefault();
-
-          var opening = !d.open || d.classList.contains('is-closing');
-          if (opening) {
-            // one row open at a time keeps the iframe height predictable
-            Array.prototype.forEach.call(items, function (o) {
-              if (o !== d && o.open && !o.classList.contains('is-closing')) {
-                o.querySelector('summary').click();
-              }
-            });
-          }
-          var startH = d.open ? body.offsetHeight : 0;
-          if (current) current.cancel();
-
-          var endH;
-          if (opening) {
-            d.classList.remove('is-closing');
-            d.open = true;
-            endH = body.scrollHeight;
-          } else {
-            d.classList.add('is-closing');
-            endH = 0;
-          }
-
-          var anim = body.animate(
-            [{ height: startH + 'px' }, { height: endH + 'px' }],
-            { duration: opening ? 340 : 260, easing: 'cubic-bezier(.2,.7,.2,1)' }
-          );
-          current = anim;
-          anim.onfinish = function () {
-            if (current === anim) current = null;
-            if (opening && summary.getBoundingClientRect().top < 0 || opening && d.getBoundingClientRect().bottom > window.innerHeight) {
-              d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-            if (!opening) {
-              d.open = false;
-              d.classList.remove('is-closing');
-            }
-          };
-          anim.oncancel = function () {
-            if (current === anim) current = null;
-          };
-        });
-      });
-    })();
-  </script>
-</div>
-
+</li>
+<li class="ect-block ect-block--key">
+  <span class="ect-time">13:30–13:55</span>
+  <div class="ect-key">
+    <div class="ect-key-main">
+      <p class="ect-kicker">基調講演 2</p>
+      <h3 class="ect-key-title">AWS と Elastic で実現するAI活用の今と未来</h3>
+      <div class="ect-meta"><span>メインルーム</span><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span></div>
+      <p class="ect-desc">AWSが牽引するAI・データ活用の最新イノベーションをご紹介するとともに、国内ユーザー企業様をゲストにお迎えし、Elasticとの取り組みを通じたビジネス価値創出の実践についてお話しいただきます。</p>
+    </div>
+    <div class="ect-key-side"><ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/kawahara.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">河原 哲也</span><span class="ect-affil">アマゾン ウェブ サービス ジャパン合同会社　パートナー技術統括本部 テクノロジーソリューション本部 本部長</span></span></li><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/akazawa.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">赤澤 剛</span><span class="ect-affil">株式会社タイミー　エンジニアリング本部 VPoE</span></span></li></ul></div>
+  </div>
+</li>
+<li class="ect-block ect-block--key">
+  <span class="ect-time">13:55–14:20</span>
+  <div class="ect-key">
+    <div class="ect-key-main">
+      <p class="ect-kicker">基調講演 3</p>
+      <h3 class="ect-key-title">パートナーシップ10年の軌跡と、AI時代への挑戦</h3>
+      <div class="ect-meta"><span>メインルーム</span><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span></div>
+      <p class="ect-desc">Elasticとの10年にわたるパートナーシップを通じて培ってきた知見と実績をもとに、NTTテクノクロス様にこれまでの取り組みとAI時代における展望をお話しいただくとともに、国内ユーザー企業様をゲストにお迎えし、実際の活用事例についてもご紹介いただきます。</p>
+    </div>
+    <div class="ect-key-side"><ul class="ect-speakers"><li class="ect-sp"><span class="ect-ava ect-ava--tbd ect-ava--lg" aria-hidden="true"></span><span class="ect-sp-text"><span class="ect-name is-tbd">登壇者調整中</span><span class="ect-affil">NTTテクノクロス株式会社　ビジネスイノベーション事業部</span></span></li><li class="ect-sp"><span class="ect-ava ect-ava--tbd ect-ava--lg" aria-hidden="true"></span><span class="ect-sp-text"><span class="ect-name is-tbd">ゲスト調整中</span><span class="ect-affil">国内ユーザー企業様</span></span></li></ul></div>
+  </div>
+</li>
+<li class="ect-row ect-row--break"><span class="ect-time">14:25–14:40</span><span class="ect-label">休憩・展示エリア</span></li>
+<li class="ect-block ect-block--breakout">
+  <span class="ect-time">14:40–15:10</span>
+  <div class="ect-bo">
+    <div class="ect-bo-head"><h3 class="ect-bo-title">ブレイクアウトセッション ①</h3><span class="ect-kind">お客様事例</span></div>
+    <div class="ect-cards"><article class="ect-card ect-card--search">
+      <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span><span>セミナールームA+B</span><span class="ect-type">お客様事例</span></div>
+      <h4 class="ect-session">AIエージェント時代の検索基盤、作り直した理由</h4>
+      <p class="ect-desc">Elasticsearch 上にあるお客様のナレッジを RAG や AI エージェントで検索可能にする事例や、検索機能の開発を今後加速させる基盤の構築についてご紹介します。</p>
+      <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/ida.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">井田 天星</span><span class="ect-affil">株式会社ナレッジワーク　ソフトウェアエンジニア</span></span></li></ul>
+    </article><article class="ect-card ect-card--security">
+      <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--security">Security</span><span>セミナールームD</span><span class="ect-type">Elastic</span></div>
+      <h4 class="ect-session">AI時代のセキュリティ地図とElastic Securityの現在地</h4>
+      <p class="ect-desc">AIエージェントの普及とともに、求められるセキュリティソリューションの姿も変わりつつあります。本セッションでは、攻撃連鎖を貫く視点からセキュリティのあり方を整理したうえで、Elastic SecurityがAI技術によってSOC運用をどう変えようとしているのかをご紹介します。</p>
+      <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/ishio.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">石尾 尚二郎</span><span class="ect-affil">Elastic</span></span></li></ul>
+    </article><article class="ect-card ect-card--obs is-tbd">
+      <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span><span>セミナールームC</span><span class="ect-type">お客様事例</span></div>
+      <h4 class="ect-session">タイトル調整中</h4>
+      
+      <ul class="ect-speakers"><li class="ect-sp"><span class="ect-ava ect-ava--tbd " aria-hidden="true"></span><span class="ect-sp-text"><span class="ect-name is-tbd">登壇者調整中</span></span></li></ul>
+    </article></div>
+  </div>
+</li>
+<li class="ect-row ect-row--break"><span class="ect-time">15:10–15:25</span><span class="ect-label">休憩・展示エリア</span></li>
+<li class="ect-block ect-block--breakout">
+  <span class="ect-time">15:25–15:55</span>
+  <div class="ect-bo">
+    <div class="ect-bo-head"><h3 class="ect-bo-title">ブレイクアウトセッション ②</h3><span class="ect-kind">スポンサー</span></div>
+    <div class="ect-cards"><article class="ect-card ect-card--search">
+      <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span><span>セミナールームA+B</span><span class="ect-type">スポンサー</span></div>
+      <h4 class="ect-session">Elastic×AgentCoreで進化する障害調査の最前線</h4>
+      <p class="ect-desc">Amazon Bedrock AgentCore RuntimeとElastic Cloudを連携。ログ・メトリクスをAIが横断分析し、自然言語による状況確認から障害原因・影響範囲の特定までを支援する仕組みをデモを交えて紹介します。</p>
+      <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/higuchi.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">樋口 慎</span><span class="ect-affil">アクロクエストテクノロジー株式会社　データサイエンティスト／サーチエンジニア</span></span></li></ul>
+    </article><article class="ect-card ect-card--security">
+      <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--security">Security</span><span>セミナールームD</span><span class="ect-type">スポンサー</span></div>
+      <h4 class="ect-session">フロンティアAI時代のあるべきSOCとは</h4>
+      <p class="ect-desc">本講演では、フロンティアAI時代に求められる検知の「速さ」・「深さ」とは何かについて解説するとともに、SOCにおけるAI活用の事例についてご紹介いたします。</p>
+      <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/sato.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">佐藤 功陛</span><span class="ect-affil">デロイト トーマツ サイバー合同会社　執行役員 サイバーインテリジェンスセンター長</span></span></li></ul>
+    </article><article class="ect-card ect-card--obs">
+      <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span><span>セミナールームC</span><span class="ect-type">スポンサー</span></div>
+      <h4 class="ect-session">ローカルLLM×Agent Builder：コンテキストエンジニアリングの実装</h4>
+      <p class="ect-desc">企業データを守るローカルLLMの活用において、文脈（コンテキスト）の理解と制御は重要課題です。本セッションではコンテキストエンジニアリングを軸に、Elastic Agent Builderの持つ可能性と構築手法に迫ります。</p>
+      <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/ito.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">伊藤 元三郎</span><span class="ect-affil">サイオステクノロジー株式会社　DX Product &amp; Integration Service Line Executive Manager</span></span></li></ul>
+    </article></div>
+  </div>
+</li>
+<li class="ect-row ect-row--break"><span class="ect-time">15:55–16:10</span><span class="ect-label">休憩・展示エリア</span></li>
+<li class="ect-block ect-block--breakout">
+  <span class="ect-time">16:10–16:40</span>
+  <div class="ect-bo">
+    <div class="ect-bo-head"><h3 class="ect-bo-title">ブレイクアウトセッション ③</h3><span class="ect-kind">Elastic</span></div>
+    <div class="ect-cards"><article class="ect-card ect-card--search">
+      <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span><span>セミナールームA+B</span><span class="ect-type">Elastic</span></div>
+      <h4 class="ect-session">業務を理解するエージェントのために Elastic が提供する業務コンテキストレイヤー</h4>
+      <p class="ect-desc">エージェント開発がFAQから業務実行へ移る中、関連情報を渡すだけのRAGでは業務上の正解を出すことが難しくなっています。用語・ルール・権限を含む業務コンテキストを企業データから統合し、エージェントに供給するための、Elasticで実現するコンテキスト基盤について、アーキテクチャとデモを交えてご紹介します。</p>
+      <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/hiyama.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">日山 雅之</span><span class="ect-affil">Elastic</span></span></li></ul>
+    </article><article class="ect-card ect-card--security">
+      <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--security">Security</span><span>セミナールームD</span><span class="ect-type">お客様事例</span></div>
+      <h4 class="ect-session">世界基準に応え、事業を支えるセキュリティ戦略</h4>
+      <p class="ect-desc">40カ国以上でグローバルビジネスを展開する当社にとって、高度化する取引先のセキュリティ要求への対応は、事業機会を確実に捉えるための不可欠な条件です。本セッションでは、セキュリティ要求を単なる制約とせず、取引先との交渉を通じて事業拡大と実効性ある対策を両立させてきた取り組みをご紹介します。</p>
+      <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/hosokawa.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">細川 光太</span><span class="ect-affil">住友電気工業株式会社　情報システム部 情報技術部 セキュリティ技術グループ長</span></span></li></ul>
+    </article><article class="ect-card ect-card--obs">
+      <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span><span>セミナールームC</span><span class="ect-type">Elastic</span></div>
+      <h4 class="ect-session">オブザーバビリティ x コンテキスト：その可能性について</h4>
+      
+      <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/sekiya.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">関屋 信彦</span><span class="ect-affil">Elastic</span></span></li></ul>
+    </article></div>
+  </div>
+</li>
+<li class="ect-row ect-row--break"><span class="ect-time">16:40–17:00</span><span class="ect-label">懇親会会場へ移動</span></li>
+<li class="ect-block ect-block--party">
+  <span class="ect-time">17:00–18:30</span>
+  <div class="ect-party"><h3 class="ect-bo-title">懇親会（メインルーム）</h3><p class="ect-desc">参加者同士のネットワーキングをお楽しみください。軽食と飲み物をご用意しています。</p></div>
+</li>
+<li class="ect-row ect-row--break ect-row--end"><span class="ect-time">18:30</span><span class="ect-label">終了</span></li>
+  </ol>
+</main>
 </body>
 </html>
