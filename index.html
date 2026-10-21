@@ -27,11 +27,14 @@
   }
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  body { background: linear-gradient(160deg, var(--ect-bg-1) 0%, var(--ect-bg-2) 100%); min-height: 100vh; }
+  /* Transparent page: any extra iframe height shows the Splash page behind, not blue */
+  html, body { background: transparent; }
   :where(.ect) :where(h2, h3, h4, p, ul, ol) { margin: 0; padding: 0; }
   :where(.ect) :where(ul, ol) { list-style: none; }
 
   .ect {
+    background: linear-gradient(160deg, var(--ect-bg-1) 0%, var(--ect-bg-2) 100%);
+    border-radius: 12px;
     padding: clamp(24px, 4vw, 56px) clamp(16px, 3.5vw, 64px) clamp(32px, 4vw, 56px);
     color: var(--ect-text);
     font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
