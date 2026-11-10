@@ -69,6 +69,7 @@
   .ect-row--break { align-items: center; padding: 10px 18px; background: rgba(255, 255, 255, 0.035); }
   .ect-row--break .ect-time { color: var(--ect-muted); }
   .ect-row--break .ect-label { font-size: 15px; color: var(--ect-muted); }
+  .ect-label small { margin-left: 1em; font-size: 13px; color: var(--ect-sub); }
   .ect-row--end .ect-time { color: var(--ect-time); }
   .ect-row--end .ect-label { color: var(--ect-text); }
 
@@ -171,33 +172,35 @@
     </ul>
   </header>
   <ol class="ect-list">
-<li class="ect-row ect-row--break"><span class="ect-time">12:00–13:00</span><span class="ect-label">受付・展示オープン</span></li>
+<li class="ect-row ect-row--break"><span class="ect-time">12:00–13:00</span><span class="ect-label">受付・展示オープン<small>展示ブース：Elastic／富士通／日立</small></span></li>
 <li class="ect-block ect-block--key">
-  <span class="ect-time">13:00–13:30</span>
+  <span class="ect-time">13:00–13:35</span>
   <div class="ect-key">
     <div class="ect-key-main">
       <p class="ect-kicker">基調講演 1</p>
-      <h3 class="ect-key-title">オープニング</h3>
+      <h3 class="ect-key-title">AIの差は、コンテキストで決まる ― Elasticが拓くAIエージェント時代のデータ基盤</h3>
       <div class="ect-meta"><span>メインルーム</span><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span><span class="ect-pill ect-pill--sm ect-pill--security">Security</span><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span></div>
-      <p class="ect-desc">AIが強力になるほど、データの価値は上がる。ElasticsearchをContext Engineering（AI Index）の基盤に、Agentic SOCとAgentic SREが検索・セキュリティ・オブザーバビリティをどう変えるか。お客様事例とデモでお見せします。</p>
+      <p class="ect-desc">生成AIのモデルは誰でも使える時代です。差がつくのは、AIに「何を、どれだけ渡すか」というコンテキストです。</p>
+      <p class="ect-desc">本講演では、ElasticsearchをAIのコンテキストレイヤーとする考え方をお示しします。AI Indexを担う「Context Engine（仮称）」がデータのそばにAIを置き、エージェントの実装を可能にします。ユースケースとして、AI SOCでアラートに自動対応する「AlertZero」と、平均復旧時間（MTTR）を最小化する「AI SRE」をご紹介します。</p>
+      <p class="ect-desc">さらにスペシャルゲストとして、藤田医科大学 CTOの森川富昭氏に、医療のリアルワールドデータをAIで活かす取り組みを伺います。</p>
     </div>
-    <div class="ect-key-side"><ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/otani.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">大谷 健</span><span class="ect-affil">Elasticsearch株式会社　代表取締役社長</span></span></li></ul></div>
+    <div class="ect-key-side"><ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/otani.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">大谷 健</span><span class="ect-affil">Elasticsearch株式会社　代表取締役社長</span></span></li><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/morikawa.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">森川 富昭</span><span class="ect-affil">学校法人藤田学園 藤田医科大学　医学部教授 デジタル戦略本部 CTO</span></span></li></ul></div>
   </div>
 </li>
 <li class="ect-block ect-block--key">
-  <span class="ect-time">13:30–13:55</span>
+  <span class="ect-time">13:35–14:00</span>
   <div class="ect-key">
     <div class="ect-key-main">
       <p class="ect-kicker">基調講演 2</p>
-      <h3 class="ect-key-title">AWS と Elastic で実現するAI活用の今と未来</h3>
+      <h3 class="ect-key-title">AWSとElasticで実現するAI活用の今と未来</h3>
       <div class="ect-meta"><span>メインルーム</span><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span></div>
       <p class="ect-desc">AWSが牽引するAI・データ活用の最新イノベーションをご紹介するとともに、国内ユーザー企業様をゲストにお迎えし、Elasticとの取り組みを通じたビジネス価値創出の実践についてお話しいただきます。</p>
     </div>
-    <div class="ect-key-side"><ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/kawahara.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">河原 哲也</span><span class="ect-affil">アマゾン ウェブ サービス ジャパン合同会社　パートナー技術統括本部 テクノロジーソリューション本部 本部長</span></span></li><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/akazawa.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">赤澤 剛</span><span class="ect-affil">株式会社タイミー　エンジニアリング本部 VPoE</span></span></li></ul></div>
+    <div class="ect-key-side"><ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/kawahara.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">河原 哲也</span><span class="ect-affil">アマゾン ウェブ サービス ジャパン合同会社　パートナー技術統括本部 本部長</span></span></li><li class="ect-sp"><img class="ect-ava ect-ava--lg" src="img/akazawa.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">赤澤 剛</span><span class="ect-affil">株式会社タイミー　エンジニアリング本部 VPoE</span></span></li></ul></div>
   </div>
 </li>
 <li class="ect-block ect-block--key">
-  <span class="ect-time">13:55–14:20</span>
+  <span class="ect-time">14:00–14:35</span>
   <div class="ect-key">
     <div class="ect-key-main">
       <p class="ect-kicker">基調講演 3</p>
@@ -205,10 +208,10 @@
       <div class="ect-meta"><span>メインルーム</span><span class="ect-pill ect-pill--sm ect-pill--search">Search / AI</span></div>
       <p class="ect-desc">Elasticとの10年にわたるパートナーシップを通じて培ってきた知見と実績をもとに、NTTテクノクロス様にこれまでの取り組みとAI時代における展望をお話しいただくとともに、国内ユーザー企業様をゲストにお迎えし、実際の活用事例についてもご紹介いただきます。</p>
     </div>
-    <div class="ect-key-side"><ul class="ect-speakers"><li class="ect-sp"><span class="ect-ava ect-ava--tbd ect-ava--lg" aria-hidden="true"></span><span class="ect-sp-text"><span class="ect-name is-tbd">登壇者調整中</span><span class="ect-affil">NTTテクノクロス株式会社　ビジネスイノベーション事業部</span></span></li><li class="ect-sp"><span class="ect-ava ect-ava--tbd ect-ava--lg" aria-hidden="true"></span><span class="ect-sp-text"><span class="ect-name is-tbd">ゲスト調整中</span><span class="ect-affil">国内ユーザー企業様</span></span></li></ul></div>
+    <div class="ect-key-side"><ul class="ect-speakers"><li class="ect-sp"><span class="ect-ava ect-ava--tbd ect-ava--lg" aria-hidden="true"></span><span class="ect-sp-text"><span class="ect-name is-tbd">登壇者調整中</span><span class="ect-affil">NTTテクノクロス株式会社　ビジネスイノベーション事業部</span></span></li><li class="ect-sp"><span class="ect-ava ect-ava--tbd ect-ava--lg" aria-hidden="true"></span><span class="ect-sp-text"><span class="ect-name is-tbd">ゲスト調整中</span><span class="ect-affil">株式会社ツルハホールディングス</span></span></li></ul></div>
   </div>
 </li>
-<li class="ect-row ect-row--break"><span class="ect-time">14:25–14:40</span><span class="ect-label">休憩・展示エリア</span></li>
+<li class="ect-row ect-row--break"><span class="ect-time">14:35–14:40</span><span class="ect-label">休憩・展示エリア</span></li>
 <li class="ect-block ect-block--breakout">
   <span class="ect-time">14:40–15:10</span>
   <div class="ect-bo">
@@ -223,11 +226,11 @@
       <h4 class="ect-session">AI時代のセキュリティ地図とElastic Securityの現在地</h4>
       <p class="ect-desc">AIエージェントの普及とともに、求められるセキュリティソリューションの姿も変わりつつあります。本セッションでは、攻撃連鎖を貫く視点からセキュリティのあり方を整理したうえで、Elastic SecurityがAI技術によってSOC運用をどう変えようとしているのかをご紹介します。</p>
       <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/ishio.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">石尾 尚二郎</span><span class="ect-affil">Elastic</span></span></li></ul>
-    </article><article class="ect-card ect-card--obs is-tbd">
+    </article><article class="ect-card ect-card--obs">
       <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span><span>セミナールームC</span><span class="ect-type">お客様事例</span></div>
-      <h4 class="ect-session">タイトル調整中</h4>
-      
-      <ul class="ect-speakers"><li class="ect-sp"><span class="ect-ava ect-ava--tbd " aria-hidden="true"></span><span class="ect-sp-text"><span class="ect-name is-tbd">登壇者調整中</span></span></li></ul>
+      <h4 class="ect-session">ログ活用クエスト ～Serverless化とAIによる運用改善に導かれし者たち～</h4>
+      <p class="ect-desc">スクウェア・エニックスのモバイルゲームのバックエンドシステムで導入したElastic Cloudの事例紹介をします。HostedからServerlessに移行するにあたって直面した課題とその解決方法についてお話しします。また、Serverless化したことで実現したAIによるログ活用についての取り組みをお伝えします。</p>
+      <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/yamamoto.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">山本 ちひろ</span><span class="ect-affil">株式会社スクウェア・エニックス</span></span></li><li class="ect-sp"><img class="ect-ava " src="img/yanai.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">矢内 奎太朗</span><span class="ect-affil">株式会社スクウェア・エニックス</span></span></li></ul>
     </article></div>
   </div>
 </li>
@@ -272,7 +275,7 @@
     </article><article class="ect-card ect-card--obs">
       <div class="ect-meta"><span class="ect-pill ect-pill--sm ect-pill--obs">Observability</span><span>セミナールームC</span><span class="ect-type">Elastic</span></div>
       <h4 class="ect-session">オブザーバビリティ x コンテキスト：その可能性について</h4>
-      
+      <p class="ect-desc">通常のオブザーバビリティデータだけでは、AIにできることには限度があります。集めたデータからシグナルを見つけ、必要に応じてさらに追加のナレッジをAIに渡すことでより人に近いところまで役割を任せられるようになります。本セッションではどのようにしてElastic Agent Builderがナレッジを活用し、真のSREパートナーに育てられるかについて見ていきます。</p>
       <ul class="ect-speakers"><li class="ect-sp"><img class="ect-ava " src="img/sekiya.svg" alt="" width="120" height="120" loading="lazy"><span class="ect-sp-text"><span class="ect-name">関屋 信彦</span><span class="ect-affil">Elastic</span></span></li></ul>
     </article></div>
   </div>
