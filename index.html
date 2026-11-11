@@ -29,6 +29,8 @@
   html, body { margin: 0; padding: 0; }
   /* Transparent page: any extra iframe height shows the Splash page behind, not blue */
   html, body { background: transparent; }
+  /* Never show a scrollbar inside the iframe */
+  html, body { overflow: hidden; }
   :where(.ect) :where(h2, h3, h4, p, ul, ol) { margin: 0; padding: 0; }
   :where(.ect) :where(ul, ol) { list-style: none; }
 
